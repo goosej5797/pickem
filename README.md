@@ -1,51 +1,79 @@
-# Vue Basic
+# Vuetify (Default)
 
-[Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) allows you to easily build [Vue.js](https://vuejs.org/) apps in minutes. Use this repo with the [Vue quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=vue) to build and customize a new static site.
+This is the official scaffolding tool for Vuetify, designed to give you a head start in building your new Vuetify application. It sets up a base template with all the necessary configurations and standard directory structure, enabling you to begin development without the hassle of setting up the project from scratch.
 
-## Project setup
+## ❗️ Important Links
+
+- 📄 [Docs](https://vuetifyjs.com/)
+- 🚨 [Issues](https://issues.vuetifyjs.com/)
+- 🏬 [Store](https://store.vuetifyjs.com/)
+- 🎮 [Playground](https://play.vuetifyjs.com/)
+- 💬 [Discord](https://community.vuetifyjs.com)
+
+## 💿 Install
+
+Set up your project using your preferred package manager. Use the corresponding command to install the dependencies:
+
+| Package Manager                                                | Command        |
+|---------------------------------------------------------------|----------------|
+| [yarn](https://yarnpkg.com/getting-started)                   | `yarn install` |
+| [npm](https://docs.npmjs.com/cli/v7/commands/npm-install)     | `npm install`  |
+| [pnpm](https://pnpm.io/installation)                          | `pnpm install` |
+| [bun](https://bun.sh/#getting-started)                        | `bun install`  |
+
+After completing the installation, your environment is ready for Vuetify development.
+
+## ✨ Features
+
+- 🖼️ **Optimized Front-End Stack**: Leverage the latest Vue 3 and Vuetify 3 for a modern, reactive UI development experience. [Vue 3](https://v3.vuejs.org/) | [Vuetify 3](https://vuetifyjs.com/en/)
+- 🗃️ **State Management**: Integrated with [Pinia](https://pinia.vuejs.org/), the intuitive, modular state management solution for Vue.
+- 🚦 **Routing and Layouts**: Utilizes Vue Router for SPA navigation and vite-plugin-vue-layouts for organizing Vue file layouts. [Vue Router](https://router.vuejs.org/) | [vite-plugin-vue-layouts](https://github.com/JohnCampionJr/vite-plugin-vue-layouts)
+- ⚡ **Next-Gen Tooling**: Powered by Vite, experience fast cold starts and instant HMR (Hot Module Replacement). [Vite](https://vitejs.dev/)
+- 🧩 **Automated Component Importing**: Streamline your workflow with unplugin-vue-components, automatically importing components as you use them. [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)
+
+These features are curated to provide a seamless development experience from setup to deployment, ensuring that your Vuetify application is both powerful and maintainable.
+
+## 💡 Usage
+
+This section covers how to start the development server and build your project for production.
+
+### Starting the Development Server
+
+To start the development server with hot-reload, run the following command. The server will be accessible at [http://localhost:3000](http://localhost:3000):
 
 ```bash
-npm install
+yarn dev
 ```
 
-### Compiles and hot-reloads for development
+(Repeat for npm, pnpm, and bun with respective commands.)
+
+> Add NODE_OPTIONS='--no-warnings' to suppress the JSON import warnings that happen as part of the Vuetify import mapping. If you are on Node [v21.3.0](https://nodejs.org/en/blog/release/v21.3.0) or higher, you can change this to NODE_OPTIONS='--disable-warning=5401'. If you don't mind the warning, you can remove this from your package.json dev script.
+
+### Building for Production
+
+To build your project for production, use:
 
 ```bash
-npm run serve
+yarn build
 ```
 
-### Compiles and minifies for production
+(Repeat for npm, pnpm, and bun with respective commands.)
 
-```bash
-npm run build
-```
+Once the build process is completed, your application will be ready for deployment in a production environment.
 
-### Lints and fixes files
+## 💪 Support Vuetify Development
 
-```bash
-npm run lint
-```
+This project is built with [Vuetify](https://vuetifyjs.com/en/), a UI Library with a comprehensive collection of Vue components. Vuetify is an MIT licensed Open Source project that has been made possible due to the generous contributions by our [sponsors and backers](https://vuetifyjs.com/introduction/sponsors-and-backers/). If you are interested in supporting this project, please consider:
 
-### Customize configuration
+- [Requesting Enterprise Support](https://support.vuetifyjs.com/)
+- [Sponsoring John on Github](https://github.com/users/johnleider/sponsorship)
+- [Sponsoring Kael on Github](https://github.com/users/kaelwd/sponsorship)
+- [Supporting the team on Open Collective](https://opencollective.com/vuetify)
+- [Becoming a sponsor on Patreon](https://www.patreon.com/vuetify)
+- [Becoming a subscriber on Tidelift](https://tidelift.com/subscription/npm/vuetify)
+- [Making a one-time donation with Paypal](https://paypal.me/vuetify)
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 📑 License
+[MIT](http://opensource.org/licenses/MIT)
 
-## Entra ID (Azure AD) authentication for Azure Static Web Apps
-
-To enable Entra ID (Azure Active Directory) authentication when this app is deployed to Azure Static Web Apps, add an `auth` block to `staticwebapp.config.json` (already included in this repo). The Static Web App expects the client id and secret to be provided as application settings.
-
-Needed application settings (configure these in your Static Web App -> Configuration):
-
-- `AZURE_CLIENT_ID` — Application (client) ID from the registered app in Entra ID
-- `AZURE_CLIENT_SECRET` — Client secret created for the app registration
-- `AZURE_TENANT_ID` — Your tenant ID (used to construct the OpenID issuer)
-
-When you register an app in Entra ID, set the redirect URI to:
-
-```
-https://<YOUR_STATIC_WEB_APP_NAME>.azurestaticapps.net/.auth/login/aad/callback
-```
-
-Replace `<YOUR_STATIC_WEB_APP_NAME>` with your Azure Static Web App hostname (or the production domain). The `staticwebapp.config.json` in this repo uses these setting names and a placeholder issuer URL `https://login.microsoftonline.com/<YOUR_TENANT_ID>/v2.0` — swap in your tenant ID or keep the placeholder and set `AZURE_TENANT_ID` in the Static Web App settings.
-
-After configuring the app registration and application settings, users will be able to sign in with Entra ID when visiting protected routes (or you can add route rules in `staticwebapp.config.json` to require authentication).
+Copyright (c) 2016-present Vuetify, LLC
