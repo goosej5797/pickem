@@ -25,8 +25,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          # Use a newer Node.js version; change to '18' or '22' if you prefer
-          node-version: '24'
+          # Use Node.js 20
+          node-version: '20'
           # Enable npm caching to speed up installs
           cache: 'npm'
       - name: Install OIDC Client from Core Package
