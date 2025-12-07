@@ -26,4 +26,13 @@ export default class Game {
     this.spread = spread
     this.total = total
   }
+
+  /**
+   * Human-friendly display name for the game.
+   * Example: "Lakers @ Warriors"
+   * @returns {string}
+   */
+  get displayName() {
+    return `${this.homeTeam} @ ${this.awayTeam}`
+  }
 }

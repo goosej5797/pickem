@@ -40,22 +40,29 @@ const router = useRouter()
 
 const user = ref({ name: 'Loading...', email: '' })
 
-const weeks = [
+const weeks = fetchWeeks()
+
+function fetchWeeks(){
+  return [
   { id: 1, label: '10', status: 'Completed', upcoming: false },
   { id: 2, label: '11', status: 'Completed', upcoming: false },
   { id: 3, label: '12', status: 'Upcoming', upcoming: true },
   { id: 4, label: '13', status: 'Upcoming', upcoming: false },
 ]
+}
 
 function goToPicks(weekId) {
-  router.push('/picks')
+  router.push('/picks?weekId=', weekId)
 }
 
 onMounted(async () => {
-  try {
-    const response = await fetch('/.auth/me')
-    console.log(response)
-    const data = await response.json()
+  user = auth();
+})
+
+async function auth() {
+    try {
+      const response = await fetch('/.auth/me')
+      const data = await response.json()
     if (data.clientPrincipal) {
       user.value.name = data.clientPrincipal.userDetails || 'Unknown User'
       user.value.email = data.clientPrincipal.userId || ''
@@ -64,8 +71,8 @@ onMounted(async () => {
     }
   } catch (e) {
     user.value.name = 'Guest'
-  }
-})
+  } 
+}
 </script>
 
 <style scoped>
